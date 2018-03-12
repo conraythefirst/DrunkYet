@@ -3,6 +3,8 @@ DrunkYet
 
 This is a simple app to track the drinks you have at a bar. No ads, no cloud, no bullshit.
 
+![screenshot1](../master/Screenshot1.png) ![screenshot2](../master/Screenshot2.png)
+
 
 ## Features
 Add a drink and hit the +/- buttons to adjust the amount. 
