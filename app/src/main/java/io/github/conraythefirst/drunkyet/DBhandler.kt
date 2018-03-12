@@ -14,9 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper
 open class DBhandler(context: Context) : SQLiteOpenHelper(context, "drinks.db", null, 1) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-
         db?.execSQL("CREATE TABLE drinks (name TEXT, amount INT)")
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -54,10 +52,8 @@ open class DBhandler(context: Context) : SQLiteOpenHelper(context, "drinks.db", 
     }
 
     fun delAll() {
-
         val db = this.writableDatabase
         db?.execSQL("DELETE FROM drinks")
-
     }
 
     fun insert(data: ContentValues): Boolean {
