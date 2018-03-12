@@ -1,5 +1,5 @@
-DrunkYet
-========
+DrunkYet?
+=========
 
 This is a simple app to track the drinks you have at a bar. No ads, no cloud, no bullshit.
 
