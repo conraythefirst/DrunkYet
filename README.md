@@ -10,4 +10,5 @@ This is a simple app to track the drinks you have at a bar. No ads, no cloud, no
 Add a drink and hit the +/- buttons to adjust the amount. 
 Hitting the "-" button when the amount is 0 will delete the drink from the list, so will do a longpress.
 
-
+## License
+[MIT license](../master/LICENSE)
