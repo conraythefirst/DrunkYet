@@ -14,6 +14,7 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.*
 import android.widget.EditText
+import android.widget.Toast
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.activity_row.view.*
 import kotlinx.android.synthetic.main.dialog_popup.*
@@ -41,15 +42,15 @@ class MainActivity : AppCompatActivity() {
             dialogBuilder.setPositiveButton("Okay", DialogInterface.OnClickListener { dialog, whichButton ->
 
                 val name = editText.text.toString().replace("'","")
-                if (name.isNullOrBlank()) {
-                    //that's what the "Nope" button is for...
-                }
-                else {
-                    val values = ContentValues()
-                    values.put("name", name)
-                    values.put("amount", 0)
-                    db.insert(values)
-                    recyclerView.adapter = MainAdapter(this@MainActivity, recyclerView)
+                if (!name.isNullOrBlank()) {
+                    
+                    if (db.doesExist(name) != true) {
+                        val values = ContentValues()
+                        values.put("name", name)
+                        values.put("amount", 0)
+                        db.insert(values)
+                        recyclerView.adapter = MainAdapter(this@MainActivity, recyclerView)
+                    }
                 }
             })
 

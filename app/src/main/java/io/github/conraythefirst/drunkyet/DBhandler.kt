@@ -45,6 +45,29 @@ open class DBhandler(context: Context) : SQLiteOpenHelper(context, "drinks.db", 
         return drinks.toList()
     }
 
+    fun doesExist(name: String): Boolean {
+        val db = this.writableDatabase
+        val query = "SELECT * FROM drinks WHERE name = '$name'"
+        val cursor = db.rawQuery(query, null)
+
+        if (cursor != null) {
+
+            if (cursor.moveToFirst()) {
+                do {
+                    if (name == cursor.getString(cursor.getColumnIndex("name"))) {
+                        cursor.close()
+                        return true
+                    }
+                } while (cursor.moveToNext())
+            }
+        } else {
+            println("cursor null")
+        }
+        cursor?.close()
+        return false
+
+    }
+
     fun delOne(name: String) {
         val db = this.writableDatabase
         val query = "DELETE FROM drinks WHERE name = '$name'"
